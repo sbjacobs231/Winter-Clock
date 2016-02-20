@@ -4,12 +4,18 @@ function displayTime() {
   var h = d.getHours();
   var m = d.getMinutes();
   var s = d.getSeconds();
+  var dark;
 
   if (h > 12) {
     h = h - 12;
+    dark = "PM";
   } else if (h === 0) {
     h = 12;
+  } else if (h < 12) {
+    dark = "AM";
   }
+
+
 
   function underTwelve(i) {
     if (i < 10) {
@@ -21,7 +27,7 @@ function displayTime() {
   m = underTwelve(m);
   s = underTwelve(s);
 
-  document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+  document.getElementById('time').innerHTML = h + ":" + m + ":" + s + " " + dark;
 
   setTimeout(function() {
     displayTime()
@@ -29,7 +35,7 @@ function displayTime() {
 }
 
 var clock = document.getElementById('time');
-clock.onload = displayTime;
+clock.onload = displayTime();
 
 //Snow
 (function() {
