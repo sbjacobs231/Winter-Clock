@@ -11,8 +11,11 @@ function displayTime() {
     dark = "PM";
   } else if (h === 0) {
     h = 12;
+    dark = "AM"
   } else if (h < 12) {
     dark = "AM";
+  } else if (h === 12) {
+    dark = "PM";
   }
 
 
